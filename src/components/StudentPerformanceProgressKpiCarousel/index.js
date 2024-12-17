@@ -261,7 +261,7 @@ const StudentPerformanceProgressKpiCarousel = (props) => {
   const activeGroupName = useMemo(() => {
     const activeGroup = groups.find(group => group.items.some(item => item.METRIC_NAME === activeKpiName))
     if (activeGroup) return activeGroup.name
-  }, [activeKpiName])
+  }, [activeKpiName, groups])
 
   return (
     <>
