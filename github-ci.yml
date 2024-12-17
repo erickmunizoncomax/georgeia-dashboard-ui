@@ -1,0 +1,18 @@
+# File: .gitlab-ci.yml
+image: docker:latest
+
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  image: google/cloud-sdk
+  services:
+    - docker:19.03.14-dind
+  script:
+    - echo $BPS_CREDENTIALS > service_account.json && cat service_account.json
+    - mkdir -p operation
+    - cp service_account.json operation/
+    - gcloud auth activate-service-account $BPS_SERVICE_ACCOUNT --key-file=operation/service_account.json
+    - gcloud config set project $BPS_PROJECT_ID
+    - gcloud builds submit . --config=cloudbuild.yaml

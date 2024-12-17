@@ -1,0 +1,12 @@
+.filterTitle{
+    color: grey;
+}
+.filterBut{
+    /* margin-top: 6px!important; */
+    margin-left: 6px !important;
+    color: #FFFFFF!important;
+    background-color: #081630!important;
+    border: #081630!important;
+    height: fit-content;
+    width: 70px;
+  }

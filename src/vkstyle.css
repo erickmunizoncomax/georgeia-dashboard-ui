@@ -1,0 +1,263 @@
+/* VK css start */
+.donut-chart-wrap { height: 400px; }
+.donut-chart-wrap #part1 { background-color: rgba(82,114,135,.65); display: flex; align-items: end; justify-content: end; }
+.donut-chart-wrap #part2 { background-color: rgba(81,115,108,.65); display: flex; align-items: end; justify-content: start; }
+.donut-chart-wrap #part3 { background-color: rgba(78,86,116,.5); display: flex; align-items: start; justify-content: end; }
+.donut-chart-wrap #part4 { background-color: rgba(123,84,108,.5); display: flex; align-items: start; justify-content: start; }
+
+.donut-chart-wrap .portion-block { margin: 5px;}
+.quarter-circle-top-left, .quarter-circle-top-right, .quarter-circle-bottom-left, .quarter-circle-bottom-right{ width: 180px; height: 92%; left: 30px; position: relative; }
+
+.quarter-circle-top-left { border-radius: 200px 5px 0 5px; box-shadow: inset 0 -3em 3em #1a19191a, 0 0 0 2px rgb(2 111 187), 0.3em 0.3em 2em rgb(0 0 0); background: #2c81bc;}
+.quarter-circle-top-left .label-container { height: 100%; transform: rotate(-45deg); }
+
+.donut-chart-wrap .label{ position: relative; color: #fff; font-size: 12px; text-align: center;}
+.donut-chart-wrap .label { top: 41px; }
+
+.quarter-circle-top-right { border-radius: 5px 200px 5px 0; box-shadow: inset 0 -3em 3em #1a19191a, 0 0 0 2px rgb(19 151 127), 0.2em 0.2em 1em rgb(0 0 0); background: #129a82; }
+.quarter-circle-top-right .label-container { height: 100%; transform: rotate(45deg); }
+
+.quarter-circle-bottom-left { border-radius: 5px 0 5px 200px; box-shadow: inset 0 3em 3em #1a19191a, 0 0 0 2px #59318d, 0.3em 0.3em 2em #000; background: #542b88; }
+.quarter-circle-bottom-left .label-container { height: 100%; transform: rotate(-135deg); }
+.quarter-circle-bottom-left .label-container .label { transform: rotate(180deg); }
+
+.quarter-circle-bottom-right { border-radius: 0 5px 200px 5px; box-shadow: inset 0 -3em 3em #1a19191a, 0 0 0 2px rgb(137 39 103), 0.1em 0.1em 1em rgb(0 0 0); background: #892c69; }
+.quarter-circle-bottom-right .label-container { height: 100%; transform: rotate(135deg); }
+.quarter-circle-bottom-right .label-container .label { transform: rotate(180deg); }
+
+.center-component { width: 320px; height: 320px; padding-top: 20px; padding-bottom: 20px; background-color: white; box-shadow: 0 0 30px #413e3e; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: start; }
+.average-tenure .selected{ background-color: #176ab7; position: relative; margin-left: -17px; }
+.average-tenure .selected:after{ content: ""; position: absolute; left: 0; top: -8px; border-right: 9px solid #176ab7; border-top: 9px solid transparent; border-bottom: 0 solid transparent; }
+.assesment-table table { border-collapse: separate; border-spacing: 2px;}
+.assesment-table tr td { font-size: 12px; padding: 2px;}
+
+.bg-color-1{ background: linear-gradient(261deg, rgba(10,66,99,1) 0%, rgba(64,46,68,1) 35%, rgba(10,66,99,1) 100%) !important;}
+.bg-color-2{ background: linear-gradient(90deg, #2C82BE 0%, #892C69 100% ); }
+.assessment_icon img { height: 100%; max-height: 40px; }
+.timer_icon img{ height: 100%; max-height: 35px; }
+.custRow > div{ height: 60%; z-index: 2; }
+.custRow .selected { background-color: white; color: rgb(58, 51, 101); padding: 15px 40px; height: 100%; width: 120%; transform: translate(-31px,-12px); z-index: 1; }
+.custRow .selected .bg-color-2 { color: white;}
+.custRow .selected .assessment_icon img { filter: brightness(0%); }
+.custRow .showHide { display: none; }
+.custRow .selected .showHide { display: inline-block; }
+.districtgoals_tab .p-tabview .p-tabview-panels { background-color: #0b1e3f; }
+.districtgoals_tab .p-tabview .p-tabview-nav { background-color: transparent; border-bottom: 0; }
+.districtgoals_tab .p-tabview-nav li:not(:last-child) { margin-right: 15px; }
+.districtgoals_tab .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link { color: #2C3944; }
+.districtgoals_tab .p-tabview-nav-container { margin-bottom: 15px; }
+.districtgoals_tab .p-tabview .p-tabview-nav li .p-tabview-nav-link {background: rgb(22, 20, 24, 0.6);color: #ABAAAB; box-shadow: none; border-radius: 8px; margin: 0; border: 1px solid #ABAAAB; padding: 1rem 2rem; }
+.slider_indicators_hide .p-carousel-indicators { display: none; }
+.outcome_slider .p-carousel-item-start .selectedChart{ background: #dfdfdf; }
+.outcome_slider .p-carousel-item-start .selected_col { background: white; color: #000; }
+.school_tabs .active { width: 110%; }
+.box-sha { box-shadow: rgb(0 0 0 / 15%) 0px 3px 3px, rgb(0 0 0 / 20%) 1px 2px 10px 0px;}
+.school_table table tr td{ padding: 7px 10px; font-size: 11px;}
+.box_sha1{ box-shadow: 0 2px 4px 0 rgb(0 0 0 / 50%); }
+.f-s-9 { font-size: 12px !important; }
+.box_sha1 { box-shadow: 0 2px 7px 1px rgb(0 0 0 / 30%);}
+.element-visible { display: block }
+            .element-hidden { display: none }
+
+.arrow_box:after, .arrow_box:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #ffffff;
+	border-width: 15px;
+	margin-left: -15px;
+}
+.arrow_box:before {
+	border-color: rgba(0, 0, 0, 0);
+	border-width: 20px;
+	margin-left: -20px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 2px;
+  background-color: #129c83;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #e7e2e2;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* VK css End */
+.school_table table tr th {
+  padding:5px; 
+}
+.pageinput{
+  line-height: 34px;
+    padding: 0 22px;
+    background:rgba(0,0,0,0.29);
+    top: 0!important;
+}
+@media  (min-width : 1800px) {
+  .head{
+    font-size: 0.98vw;
+  }
+  .school_table table tr th {
+    font-size:  0.88vw !important;
+  }
+  .school_table table tr td {
+    padding: 15px 10px;
+    font-size:  0.88vw;
+  }
+}
+
+@media (min-width: 1930px) {
+  .main_facts_title .text-\[1em\]{
+    font-size:  0.98vw ;
+  }
+  .main_facts_title .text-\[12px\]{
+    font-size:  0.88vw;
+  }
+  .mnfcts-carimg .text-\[12px\]{
+    font-size:  0.88vw !important;
+  }
+  .mnfcts-carimg .text-\[10\.5px\]{
+    font-size:  0.68vw;
+  }
+  .mnfcts-carimg  .text-\[12\.5px\]{
+    font-size:  0.78vw;
+  }
+  .dashboard-silder {
+    margin-top: 10vw;
+  }
+  .dashboard-silder .swiper-slide .h-\[160px\]{
+    height: 8vw;
+  }
+  .mnfcts-carimg  .h-\[67px\] {
+    height: 4vw;
+}
+  .mnfcts-carimg .max-h-\[70px\] {
+    max-height: 3vw;
+}
+.swiper-slide .h-\[40px\] {
+  height: 2vw;
+}
+.swiper-slide .text-\[14px\].slider-innertitle {
+  font-size: 0.9vw;
+}
+.enrollment_main .text-\[12px\]{
+  font-size:  0.88vw ;
+}
+.title{
+  font-size:  1.05vw ;
+}
+.subtitle{
+  font-size:  0.88vw ;
+}
+.enrollment_main .text-\[20px\]{
+  font-size:  1.05vw ;
+}
+.p-tabview-panels .text-\[18px\]{
+  font-size:  1vw ;
+}
+.p-tabview-panels .text-\[14px\]{
+  font-size:  0.88vw ;
+}
+.p-tabview-panels .menu ul li a{
+  font-size:  0.88vw;
+}
+.p-sidebar-right .p-sidebar {
+  width: 21vw !important;
+}
+.p-tabview-panels .form-floating{
+  width: 100% !important;
+}
+.swiper-slide .text-\[11px\]{
+  font-size:  0.78vw;
+}
+.swiper-slide .text-\[16px\]{
+  font-size:  0.98vw;
+}
+.enrollment_main .h-\[120px\] {
+  height: 5vw;
+}
+.enrollment_main .StudentEnrollmentbygrade .echarts-for-react {
+  height: 5vw !important;
+}
+.StudentEnrollmentbyYear .echarts-for-react {
+  height: 5vw !important;
+}.swiper-slide .text-\[9\.5px\] {
+  font-size: 0.68vw;
+}
+.swiper-slide .text-\[20px\]{
+  font-size:  1.05vw;
+}
+.FinInfo1 .echarts-for-react{
+  height: 10vw !important;
+  width: 6vw !important;
+}
+.FinInfo2 .echarts-for-react{
+  height: 10vw !important;
+  width: 6vw !important;
+}
+.swiper-slide .text-\[13px\]{
+  font-size:  0.78vw;
+}
+.filterTitle{
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+}
+}

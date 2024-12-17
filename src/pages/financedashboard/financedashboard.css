@@ -1,0 +1,126 @@
+/* .landing_resources_wrap {
+    background: url('/images/resources/landing_resources_wrap.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    height: 100%;
+    min-height: 100vh;
+} */
+
+.cohortboxcarousel .p-carousel .p-carousel-content .p-carousel-prev, .cohortboxcarousel .p-carousel .p-carousel-content .p-carousel-next {
+    background-color: #16213F;
+    border: 0;
+    border-radius: 8px;
+    color: #ffffff;
+    height: 110px;
+    margin: 0;
+    transition: background-color .2s,color .2s,box-shadow .2s;
+    width: 2rem;
+}
+
+.cohortboxcarousel .p-carousel .p-carousel-indicators {
+    display: none;
+}
+
+@media (min-width:1800px) { 
+    .cohortboxcarousel .p-carousel .p-carousel-content .p-carousel-prev, .cohortboxcarousel .p-carousel .p-carousel-content .p-carousel-next {
+        height: 5.625vw;
+    }
+}
+
+
+.districtclimaterating {
+    position: relative;
+}
+.districtclimaterating .score {
+    position: absolute;
+    background: #28376C;
+    padding: 8px 12px;
+    top: 0px;
+    left: 10px;
+}
+
+.districtclimaterating.per-pupil .score:before{
+    content: '';
+    display: block;
+    background-image: url(/src/assets/images/backgroundimg.svg);
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    right: -9px;
+    z-index: 0;
+    height: 94px;
+    width: 10px;
+    border: none;
+    background-position: center bottom;
+}
+.districtclimaterating .score2 {
+    position: absolute;
+    background: #2C4089;
+    padding: 8px 12px;
+    top: 0px;
+    left: -10px;
+}
+.districtclimaterating .score2:before {
+    content: '';
+    display: block;
+    background-image: url(/src/assets/images/left_img.svg);
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    z-index: 0;
+    height: 104px;
+    width: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.collegejoindata p {
+    color: #C9D0DB;
+    padding: 10px 14px;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+}
+
+.collegejoindata .table-auto {
+    width: 100%;
+}
+.collegejoindata .table-auto thead tr th {
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    /* text-align: center; */
+}
+.collegejoindata .table-auto tr{
+    background-color: rgba(71,85,104,0.40);
+}
+.collegejoindata .table-auto tr:nth-child(even){
+    background-color: rgba(10,22,34,0.40)
+}
+.districtclimaterating .score-three:before {
+
+    border: none;
+}
+
+.districtclimaterating .score-four:before {
+    border:none;
+}
+
+.districtclimaterating .score {
+    position: absolute;
+    background: #2c4089;
+    text-align: center;
+    width: 64px;
+    height: 140px;
+    top: -25px;
+}
+
+.benchmarkScroll .p-carousel .p-carousel-item{
+max-width: 340px;
+}
