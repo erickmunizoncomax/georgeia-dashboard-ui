@@ -283,8 +283,6 @@ export default function StrengthWeakness(props) {
   const endIndex = startIndex + itemsPerPage;
   const currentItems = items?.slice(startIndex, endIndex);
 
-  console.log("currentItems", currentItems)
-
   const [products, setProducts] = useState([]);
   const responsiveOptions = [
     {
@@ -331,36 +329,38 @@ export default function StrengthWeakness(props) {
   }
 
   const productTemplates = (finalData) => {
-
     const isActive = selectedDimensions.includes(finalData.DIMENSION_NAME);
 
     return (
-      <div
-        className='cohortbox-carousel pt-0'
-        onClick={() => handleTileClick(finalData.DIMENSION_NAME)}
-      >
+      <div className='cohortbox-carousel pt-0'
+           onClick={() => handleTileClick(finalData.DIMENSION_NAME)}>
         <div className='product-item'>
-          <div
-            className={isActive ? `legendbox active` : 'legendbox'}
-            style={{borderLeftColor: isActive ? '#002D62' : `${barColors.current?.[finalData?.DIMENSION_NAME] || '#2B3D82'}`}}
-          >
-            <div className='legend-header text-xs'>
-              <p>{finalData?.DIMENSION_NAME}</p>
+          <div className={`!p-2 ${isActive ? `legendbox !bg-[#081630]` : 'legendbox'}`}
+               style={{ borderLeftColor: isActive ? '#081630' : `${barColors.current?.[finalData?.DIMENSION_NAME] || '#2B3D82'}` }}>
+            <div className="text-[10px] font-light">
+              <p className={`${isActive ? 'text-white' : ''}`}>
+                { finalData?.DIMENSION_NAME }
+              </p>
             </div>
-            <div className='flex justify-between items-center'>
+            <div className="flex justify-between items-center">
               <div className='flex justify-start items-center'>
-                <span className="text-[13px] font-[600] mr-2">{finalData?.VALUE?.toFixed(1)}% </span>
+                <span className={`mr-2 ${isActive ? 'text-white' : ''}`}>
+                  { finalData?.VALUE?.toFixed(1) }%
+                </span>
                 {
-                  finalData?.VARIANCE > 0
-                    ? <Chip label={finalData?.VARIANCE ? finalData?.VARIANCE?.toFixed(1) + "%" : "-"}
-                            icon="pi pi-arrow-up-right"
-                            style={{background: "#1C6130", fontSize: 11, height: 20, color: '#fff'}}/>
-                    : finalData?.VARIANCE == 0
-                      ? <Chip label={finalData?.VARIANCE ? finalData?.VARIANCE?.toFixed(1) + "%" : "-"} icon="pi pi-minus"
-                              style={{background: "#808080", fontSize: 11, height: 20, color: '#fff'}}/>
-                      : <Chip label={finalData?.VARIANCE ? finalData?.VARIANCE?.toFixed(1) + "%" : "-"}
-                              icon="pi pi-arrow-down-right"
-                              style={{background: "#6A1D25", fontSize: 11, height: 20, color: '#fff'}}/>
+                  finalData?.VARIANCE > 0 ? (
+                    <Chip label={finalData?.VARIANCE ? finalData?.VARIANCE?.toFixed(1) + "%" : "-"}
+                          icon="pi pi-arrow-up-right !text-[8px]"
+                          style={{background: "#129b83", fontSize: 9, height: 14, color: '#fff'}}/>
+                  ) : finalData?.VARIANCE === 0 ? (
+                    <Chip label={finalData?.VARIANCE ? finalData?.VARIANCE?.toFixed(1) + "%" : "-"}
+                          icon="pi pi-minus !text-[8px]"
+                          style={{background: "#808080", fontSize: 9, height: 14, color: '#fff'}}/>
+                  ) : (
+                    <Chip label={finalData?.VARIANCE ? finalData?.VARIANCE?.toFixed(1) + "%" : "-"}
+                          icon="pi pi-arrow-down-right !text-[8px]"
+                          style={{background: "#d9685b", fontSize: 9, height: 14, color: '#fff'}}/>
+                  )
                 }
               </div>
             </div>
@@ -370,9 +370,7 @@ export default function StrengthWeakness(props) {
     );
   };
 
-
   const columnsMapping = (tempObj, a, column, columnsRestored) => {
-
     Object.keys(a).forEach((keys) => {
       if (column.includes(keys)) {
         console.log(keys, 'keyskeys')
@@ -382,7 +380,6 @@ export default function StrengthWeakness(props) {
         tempObj[keys] = a[keys];
       }
     });
-
   };
 
   const groupByTimeSeries = (data, row, column, columnsRestored) => {
@@ -495,7 +492,7 @@ export default function StrengthWeakness(props) {
     //         }
     //         return itr;
     //     })
-    // } 
+    // }
     // else if (performance == "student_ell") {
     //     student_dimension_reportdatanew?.map(itr => {
     //         if (itr["DIMENSION_NAME"] == "Not Reported") {
@@ -1284,7 +1281,7 @@ export default function StrengthWeakness(props) {
   const groupedKpiData = mapKpisDataByMetricGroup(student_performance_tile_reportdatanew)
 
   return (
-    <div className="pb-10 body">
+    <div className="pb-10 !bg-[#242b3d]">
       <TopNav pagename="Student Performance & Progress"
               pagenamedescription="Provides an overview of Student Performance in the key areas like attendance and academics"
               setUserData={props.setUserData} />
@@ -1299,7 +1296,7 @@ export default function StrengthWeakness(props) {
         <div className="flex justify-between max-tablet:flex-col max-tablet:items-start">
           <div style={{ position: "relative", top: "10px" }}>
             <div className="title-text text-xl flex items-center">Student's Dimension Analysis</div>
-            <div className="text-[12px] flex items-center">Selected Indicator: {selectedmetricname}</div>
+            <div className="text-[12px] flex items-center font-light">Selected Indicator: {selectedmetricname}</div>
           </div>
           <div className="flex justify-center">
             <div className="mx-1 enrollselect">
@@ -1319,12 +1316,14 @@ export default function StrengthWeakness(props) {
         </div>
       </div>
 
-      <div className='grid grid-cols-12 mx-5 mt-2 gap-3'>
-        <div className='col-span-8 max-tablet:!col-span-12'>
+      <div className="grid grid-cols-12 mx-5 mt-2 gap-3">
+        <div className="col-span-8 max-tablet:!col-span-12 shadow-lg">
           <LoaderContainer loading={student_dimension_reportdataloading}>
-            <div className='echart h-full relative wrap-component'>
-              <div className="title-text flex items-center text-white ml-5 py-5">Time Trending
-                View {/*- {selectedmetricname} */}</div>
+            <div className='echart h-full relative bg-[#0c1c3b] rounded'>
+              <div className="title-text flex items-center text-white px-4 py-2 font-light text-base">
+                Time Trending View
+              </div>
+
               <div className="card timetreanding-carousel px-4 mb-4 ">
                 {
                   finalData && (
@@ -1333,7 +1332,7 @@ export default function StrengthWeakness(props) {
                               numVisible={4}
                               indicators={false}
                               responsiveOptions={responsiveOptions}
-                              itemTemplate={productTemplates} />
+                              itemTemplate={productTemplates}/>
                   )
                 }
               </div>
@@ -1344,13 +1343,16 @@ export default function StrengthWeakness(props) {
                                lineDimensions={["TARGET"]}
                                pivotData={selectedDimensions.length > 0 ? filteredCombinedData : combinedData}
                                getBarColor={getBarColors}
-                               selectDimension={performance} />
+                               selectDimension={performance}/>
             </div>
           </LoaderContainer>
         </div>
-        <div className="card col-span-4 max-tablet:!col-span-12 wrap-component">
-          <div className="title-text flex items-center text-white ml-2 py-5 text-16px]">Performance Summary View</div>
-          <div className="px-2">
+
+        <div className="card col-span-4 max-tablet:!col-span-12 bg-[#0c1c3b] rounded-lg shadow-lg">
+          <div className="title-text flex items-center text-white px-4 py-2 font-light text-base">
+            Performance Summary View
+          </div>
+          <div className="w-full">
             <div className='graduationtable relative'>
               <div className='flex justify-around items-center '>
                 <div className='text-[#FFFFFF] text-[14px]'></div>
@@ -1358,39 +1360,71 @@ export default function StrengthWeakness(props) {
                 <div className='text-[#FFFFFF] text-[14px]'></div>
               </div>
               <LoaderContainer loading={selectedmetric == 10097 ? student_dimension_report_graduationdataloading : student_dimension_table_reportdataloading}>
-                <div className='collegejoindata'>
-                  <table class='table-auto border-collapse'>
-                    <thead className='bg-[#081631] h-[40px] border-t-2 border-white'>
+                <div className="collegejoindata">
+                  <table className="w-full">
+                    <thead className="bg-[#081630] h-[40px]">
                     <tr>
-                      <th><Link>Student Group</Link></th>
-                      <th><Link>District Performance</Link></th>
-                      <th><Link>Target</Link></th>
+                      <th>
+                        <Link>
+                          <p className="text-white !text-xs !font-normal text-left">
+                            Student Group
+                          </p>
+                        </Link>
+                      </th>
+                      <th>
+                        <Link>
+                          <p className="text-white !text-xs !font-normal text-left">
+                            District Performance
+                          </p>
+                        </Link>
+                      </th>
+                      <th>
+                        <Link>
+                          <p className="text-white !text-xs !font-normal text-left">
+                            Target
+                          </p>
+                        </Link>
+                      </th>
                     </tr>
                     </thead>
                     <tbody>
                     {
-                      currentItems && currentItems?.map(itr => {
-                        return (
-                          <tr className='bg-[#1a253b]'>
-                            <td><p>{itr?.DIMENSION_NAME}</p></td>
-                            <td><p>{itr?.VALUE?.toFixed(1)}%</p></td>
-                            <td><p>{itr?.TARGET}%</p></td>
-                          </tr>
-                        )
-                      })
+                      currentItems && currentItems?.map(itr => (
+                        <tr className="bg-[#0c1c3b] border-b border-white last:border-b-0 border-opacity-10">
+                          <td>
+                            <p className="text-white !text-xs !font-light">
+                              {itr?.DIMENSION_NAME}
+                            </p>
+                          </td>
+                          <td>
+                            <p className="text-white !text-xs !font-light">
+                              {itr?.VALUE?.toFixed(1)}%
+                            </p>
+                          </td>
+                          <td>
+                            <p className="text-white !text-xs !font-light">
+                              {itr?.TARGET}%
+                            </p>
+                          </td>
+                        </tr>
+                      ))
                     }
                     </tbody>
                   </table>
-                  <div className='flex justify-around items-center bg-[#1d2634] h-[40px] border-t-4 border-white'>
+
+                  <div className="flex justify-around items-center bg-[#081630] h-[40px]">
                     <button className={`paginationprevious ${currentPage === 1 ? 'disabled' : ''}`}
-                            style={{fontSize: "12px", color: "#FFFFF"}} onClick={handlePrevClick}
-                            disabled={currentPage === 1}>Previous
+                            style={{fontSize: "10px", color: "white"}}
+                            onClick={handlePrevClick}
+                            disabled={currentPage === 1}>
+                      Previous
                     </button>
                     <button className={`paginationnext ${currentPage === totalPages ? 'disabled' : ''}`}
-                            style={{fontSize: "12px", color: "#FFFFF"}} onClick={handleNextClick}
-                            disabled={currentPage === totalPages}>Next
+                            style={{fontSize: "10px", color: "white"}}
+                            onClick={handleNextClick}
+                            disabled={currentPage === totalPages}>
+                      Next
                     </button>
-                    {/* text-[#898d95] text-[12px] */}
                   </div>
                 </div>
               </LoaderContainer>

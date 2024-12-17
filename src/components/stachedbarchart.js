@@ -1,5 +1,5 @@
-import React, {useEffect, useMemo} from "react";
-import ReactEcharts from "echarts-for-react";
+import React, {useEffect, useMemo} from "react"
+import ReactEcharts from "echarts-for-react"
 
 export default function StachedBarChart(props) {
   let {
@@ -11,10 +11,11 @@ export default function StachedBarChart(props) {
 
   let colors = ["#2b79b3", "#2b3d82", "#802a64", "#13917c", "#cac2f9", "#2b79b3", "#2b79b3"]
 
-  let series = [];
+  let series = []
   barDimensions?.forEach((item, index) => {
     series.push({
       type: 'bar',
+      barGap: '8%',
       barWidth: selectDimension === 'Grade' ? '5%' : "8%",
       color: colors[index],
       animation: false,
@@ -38,13 +39,21 @@ export default function StachedBarChart(props) {
       color: '#fff',
       symbolSize: 10,
       symbol: 'circle',
+      symbolRotate: 0,
+      itemStyle: {
+        normal: {
+          borderWidth: 2,
+          borderColor: '#fff',
+          color: '#0c1c3c'
+        }
+      },
       animation: false,
       lineStyle: {
-        width: 3,
-      },
+        width: 2,
+        color: '#fff'
+      }
     })
   })
-
 
   const chartOptions = useMemo(() => {
     return {
@@ -77,11 +86,10 @@ export default function StachedBarChart(props) {
                     <span style="flex-grow: 1; margin-right: 20px;">${param?.seriesName}</span>
                     <span>${param?.value?.[param?.seriesName]}</span>
                 </div>            
-            `;
-
+            `
             }
-          });
-          return tooltipContent;
+          })
+          return tooltipContent
         }
       },
       legend: {
@@ -153,7 +161,6 @@ export default function StachedBarChart(props) {
         type: 'category',
         animation: false,
         data: props?.finalData1?.map(itr => itr?.overallvalue),
-
         axisTick: {
           show: false
         },
@@ -169,19 +176,11 @@ export default function StachedBarChart(props) {
       // series: props.data,
       series: series
     }
-  }, [series]);
+  }, [series])
 
-  const onChartClick = (params) => {
-  };
-  const onEvents = {
-    click: onChartClick,
-  };
-
+  console.log(chartOptions)
 
   return (
-    <div className="pb-10">
-      <ReactEcharts option={chartOptions}
-                    onEvents={onEvents}/>
-    </div>
+    <ReactEcharts option={chartOptions} />
   )
 }
